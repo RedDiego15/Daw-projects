@@ -1,0 +1,48 @@
+.about-me__container{
+    margin-top:4rem;
+    display:grid;
+    row-gap: 1rem;
+    padding: 0 1.5rem;
+}
+.about-me-image{
+    border-radius: 50%;
+    width: 18rem;
+    height: 18rem;
+    background-color:grey;
+    justify-self: center;
+    align-self: center;
+}
+.mobile__divide-line{
+    width: 80%;
+    border: none;
+    border-bottom: #D7D7D7 1px solid ;
+    justify-self: center;
+}
+.general-title{
+    font-size:2.4rem;
+    font-weight:bold;
+    margin-bottom:3rem;
+}
+.about-me__text{
+    font-size:1.6rem;
+    font-family: jura;
+    line-height: 1.7;
+}
+.about-me__text-container{
+    display:flex;
+    flex-direction:column;
+    border-top: 1px solid #D7D7D7;
+    padding-top: 3rem;
+
+}
+@media (min-width: 600px) {
+    .about-me__container{
+        grid-template-columns: repeat(2,1fr);
+
+    }
+    .about-me-image{
+        width:35rem;
+        height:35rem;
+    }
+   
+  }
