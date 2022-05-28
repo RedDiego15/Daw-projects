@@ -1,8 +1,10 @@
+
 .portfolio__container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding:0 1.5rem;
+    margin-bottom:1rem;
 }
 .portfolio__item-container{
     display: grid;
