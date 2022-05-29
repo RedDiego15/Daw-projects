@@ -1,0 +1,53 @@
+.get-in-touch__container{
+    padding:0 1.5rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.form__label{
+    opacity: 0;
+}
+.get-in-touch__form{
+    width: 100%;
+    
+}
+.form__container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+
+}
+.form__input{
+    border:none;
+    border-bottom:1px solid black;
+    background-color:white;
+    width:80%;
+    height:3.5rem;
+
+}
+.form__input::placeholder{
+    font-size:1.6rem;
+    color:black;
+    font-weight: normal;
+    font-family: jura;
+}
+.form__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    width: 12rem;
+    height: 3rem;
+    font-size:1.6rem;
+    margin-top: 3.5rem;
+
+
+
+}
