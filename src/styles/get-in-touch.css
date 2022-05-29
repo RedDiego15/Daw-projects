@@ -1,8 +1,12 @@
+.desktop-location__map{
+    display: none;
+}
 .get-in-touch__container{
     padding:0 1.5rem;
     display:flex;
     flex-direction:column;
     align-items:center;
+    margin-bottom: 2rem;
 }
 .form__label{
     opacity: 0;
@@ -47,7 +51,35 @@
     height: 3rem;
     font-size:1.6rem;
     margin-top: 3.5rem;
-
-
-
 }
+.location{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.location__content{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    gap: 1.5rem;
+}
+.mobile-location__map{
+    width: 100%;
+}
+.location__text{
+    font-size:1.6rem;
+    margin-top:1rem;
+}
+@media (min-width: 600px) {
+    .location__content{
+        flex-direction: row;
+        align-items: center;
+    }
+    .mobile-location__map{
+        display:none;
+    }
+    .desktop-location__map{
+        display:block;
+    }
+   
+  }
