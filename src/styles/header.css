@@ -15,6 +15,24 @@ a{
     text-decoration: none;
 }
 
+.audio-container{
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 60px;
+    left: 80%;
+    background-color:#cdcdcd;
+    width: 5rem;
+    height: 5rem;
+    border-radius:50%
+}   
+.audio-img{
+    position: relative;
+    top: 1rem;
+    left:1.2rem;
+    width: 24px;
+    height: 24px;
+}
+
 .header{
     width:100%;
     height: 8.5vh;
@@ -62,6 +80,9 @@ a{
     }
     .header__nav{
         display: block;
+    }
+    .audio-container{
+        left: 95%;
     }
   }
   
