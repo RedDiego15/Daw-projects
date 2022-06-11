@@ -37,6 +37,11 @@
 .item-info__description{
     font-size:1.6rem;
     font-family: jura;
+    padding:0 0.5rem;
+}
+.item-info__button a{
+    text-decoration: none;
+    color: white;
 }
 @media (min-width: 600px) {
     .portfolio__item-container{

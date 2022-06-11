@@ -6,7 +6,7 @@
 }
 .intro__landing-image-container{
     width:100%;
-    height:20vh;
+    height:38vh;
     background-image: url(../../assets/mobile-cover-page.webp);
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,6 +44,9 @@
     background-color: white;
     height:3rem;
     width:4rem;
+}
+.btn-portfolio {
+    text-decoration: none;
 }
 
 @media (min-width: 600px) {

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../src/styles/intro.css">
     <link rel="stylesheet" href="../src/styles/aboutme.css">
     <link rel="stylesheet" href="../src/styles/portfolio.css">
-    <link rel="stylesheet" href="../src/styles/web-statistics.css">
+    <link rel="stylesheet" href="../src/styles/Courses.css">
     <link rel="stylesheet" href="../src/styles/get-in-touch.css">
     <link rel="stylesheet" href="../src/styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,7 @@
 </head>
 <body>
     <header class="header">
+        
         <figure class="header-img">
             <img src="../assets/LogoEdited.png" alt="logo">
         </figure>
@@ -27,9 +28,9 @@
         </figure>
         <nav class="header__nav">
             <ul class="header-nav__container">
-                <li><a class="header-nav__link" href="">Home</a></li>
-                <li><a class="header-nav__link" href="">Contact</a></li>
-                <li><a class="header-nav__link" href="">Get in Touch</a></li>
+                <li><a class="header-nav__link" href="#portfolio">Portfolio</a></li>
+                <li><a class="header-nav__link" href="#about_me">About me</a></li>
+                <li><a class="header-nav__link" href="#contact">Get in Touch</a></li>
             </ul>
         </nav>
     </header>
@@ -40,19 +41,25 @@
             <h2 class="intro__title">
                 Hi, I'm Diego Rojas Engeenier in Computer Science and i Love build beautiful and fast web applications
             </h2>
-            <button class="btn-portfolio">
+            <a href="#portfolio">
+                <button class="btn-portfolio">
                     <figure class="btn-portfolio__arrows-container">
                         <img  src="../assets/arrows-dawn-gif.gif" alt="gif animated">
                     </figure>
               
                 See Portfolio
+
+                
+                    
             </button>
+            </a>
+           
         </div>
     </section>
 
-    <section class="about-me__container">
+    <section id="about_me" class="about-me__container">
         <figure class="about-me-image">
-            <img src="" alt="profile picture">
+            <img src="#" alt="profile picture"/>
         </figure>
         <div class="about-me__text-container">
             <h3 class="general-title">About Me</h3>
@@ -62,12 +69,14 @@
 
                 I worked with differents teams works, following agile approach with scrum as framework, take a lot of private courses on web devolpment such as web performance and advanced use of react framework in platzi academy.<br><br>
 
-                I can speak two fluent languages that are english and spanish, i have been  working in another areas as costumer service and attending guest which give me the skill to have better communication with coworkers and work as a team. 
+                I can speak two fluent languages that are english and spanish, i have been  working in another areas as costumer service and attending guest which give me the skill to have better communication with coworkers and work as a team.<br> 
+            
             </p>
 
         </div>        
     </section>
-    <section class="portfolio__container">
+
+    <section id="portfolio" class="portfolio__container">
         <div class="divide-line"></div>
         <h3 class="general-title">Portfolio</h3>
         <div class="portfolio__item-container">
@@ -77,49 +86,85 @@
             </figure>
             <div class="item-info__container">
                 <h4 class="item-info__title">Platzi Video</h4>
-                <p class="item-info__description"> short Description</p>
-                <button class="item-info__button"> Visit Here</button>
+                <p class="item-info__description"> Web site like netflix with anime, worked to have the best performance and learn about block time with css js and all process of render</p>
+                <button class="item-info__button"> <a target ="_blank" href="https://clever-khorana-2d0d7a.netlify.app/">Visit Here
+
+                </a> </button>
             </div>
         </div>
         <div class="portfolio__item-container">
             <figure class="item-image__container">
-                <img class="mobile__item-image" src="../assets/portfolio-items/MobilePlatziVideo.png" alt="Project Image">
+                <img class="mobile__item-image" src="../assets/portfolio-items/MobileTaskOrganizer.png" alt="Project Image">
                 
             </figure>
             <div class="item-info__container">
-                <h4 class="item-info__title">Platzi Video</h4>
-                <p class="item-info__description"> short Description</p>
-                <button class="item-info__button"> Visit Here</button>
+                <h4 class="item-info__title">Task Organizer</h4>
+                <p class="item-info__description"> Task organizer made with react, and use de memory of the browser</p>
+                <button class="item-info__button"><a href="https://reddiego15.github.io/task_organizer/">Visit Here</a>  </button>
+            </div>
+        </div>
+        <div class="portfolio__item-container">
+            <figure class="item-image__container">
+                <img class="mobile__item-image" src="../assets/portfolio-items/PlatziConfig.png" alt="Project Image">
+                
+            </figure>
+            <div class="item-info__container">
+                <h4 class="item-info__title">Platzi config</h4>
+                <p class="item-info__description"> Store for products, implements performance, payment method with paypal, and localization with google api</p>
+                <button class="item-info__button"><a href="https://react-pl-config.web.app/">Visit Here</a>  </button>
             </div>
         </div>
     </section>
-    <section class="web-statistics">
+    <section class="courses">
         <div class="divide-line"></div>
         <div class="statistics-table--container">
             <table>
-                <caption class="general-title">Web Statistics</caption>
+                <caption class="general-title">Courses Taken</caption>
                 <tr>
-                    <td class="table-tag table__topleft">Performance</td>
-                    <td class="table__topright table__right">90</td>
+                    <td class="table-tag table__topleft">Platzi</td>
+                    <td class="table__topright table__right">Curso de Gestión de Dependencias y Paquetes con NPM</td>
                 </tr>
                 <tr>
-                    <td class="table-tag">Seo</td>
-                    <td class="table__right">90</td>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso de Introducción a React.js</td>
                 </tr>
                 <tr>
-                    <td class="table-tag">Accesibility</td>
-                    <td class="table__right">90</td>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso de Optimización Web</td>
                 </tr>
+                
                 <tr>
-                    <td class=" table-tag table__bottom-left">Recomended practices</td>
-                    <td class="table__bottom-right table__right">90</td>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso de Introducción a React.js</td>
                 </tr>
+                
+                <tr>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso de React.js: Manejo Profesional del Estado</td>
+                </tr>
+                
+                <tr>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso de React.js: Patrones de Render y Composición</td>
+                </tr>
+                
+                <tr>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">
+                        Curso Profesional de React Hooks</td>
+                </tr>
+                
+                <tr>
+                    <td class="table-tag">Platzi</td>
+                    <td class="table__right">Curso Práctico de React.js</td>
+                </tr>
+                
             </table>
         </div>
         <div class="divide-line"></div>
 
     </section> 
-    <section class="get-in-touch__container">
+    <section id="contact" class="get-in-touch__container">
         <form class="get-in-touch__form" action="" autocomplete = "on">
             <fieldset class="form__container">
                 <legend class="general-title" >Get in Touch</legend>
@@ -156,9 +201,9 @@
         <div class="footer__navigation">
             <nav>
                 <ul class="header-nav__container footer-nav">
-                    <li><a class="header-nav__link" href="">Home</a></li>
-                    <li><a class="header-nav__link" href="">Contact</a></li>
-                    <li><a class="header-nav__link" href="">Get in Touch</a></li>
+                    <li><a class="header-nav__link" href="#portfolio">Portfolio</a></li>
+                    <li><a class="header-nav__link" href="#about_me">About me</a></li>
+                    <li><a class="header-nav__link" href="#contact">Get in Touch</a></li>
                 </ul>
             </nav>
             <div class="footer__social-media-container">
