@@ -15,6 +15,7 @@ a{
     text-decoration: none;
 }
 
+
 .audio-container{
     position: -webkit-sticky;
     position: sticky;
@@ -65,6 +66,12 @@ a{
     justify-content: space-between;
     list-style: none;
 }
+.header-nav__container li:hover{
+    transform: scale(1.1);
+    color: grey;
+    text-decoration: underline;
+}
+
 .header-nav__link{
     text-decoration: none;
     color: white;
