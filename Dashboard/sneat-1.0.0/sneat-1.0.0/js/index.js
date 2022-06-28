@@ -1,5 +1,9 @@
 const $coins_input = document.getElementById('coins-input');
 const $container_data_coins = document.getElementById('container-data-coins');
+const $search = document.getElementById('search');
+const $pageTitle = document.getElementById('page-title');
+const $middle_content_information = document.getElementById('middle-content-information');
+
 const getMarketOverviewInfo = ()=>{
     fetch('https://api.coinpaprika.com/v1/global')
     .then(res => res.json())
