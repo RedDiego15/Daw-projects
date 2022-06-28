@@ -7,27 +7,71 @@ const getMarketOverviewInfo = ()=>{
         const{
             market_cap_usd,
             volume_24h_usd,
-            bitcoin_dominance_percentage,
-            cryptocurrencies_number,
-            market_cap_ath_value,
-            market_cap_ath_date,
-            volume_24h_ath_value,
-            volume_24h_ath_date,
-            market_cap_change_24h,
-            volume_24h_change_24h,
-        
         } = json;
-    
-        createTableInfo('market_cap_usd',market_cap_usd);
-        createTableInfo('volume_24h_usd',volume_24h_usd);
-        createTableInfo('bitcoin_dominance_percentage',bitcoin_dominance_percentage);
-        createTableInfo('cryptocurrencies_number',cryptocurrencies_number);
-        createTableInfo('market_cap_change_24h',market_cap_change_24h);
-        createTableInfo('volume_24h_change_24h',volume_24h_change_24h);
-
-
+        drawBarChart(market_cap_usd,volume_24h_usd)
+        fillMarketOverviewInformation(json)
     })
 }
+const fillMarketOverviewInformation = (json)=>{
+    const{
+        market_cap_usd,
+        bitcoin_dominance_percentage,
+        cryptocurrencies_number,
+        market_cap_ath_value,
+        volume_24h_ath_value,
+    } = json;
+    const $btc_dominance = document.getElementById('bitcoin-dominance')
+    const $crypto_number = document.getElementById('crypto-number')
+    const $ath = document.getElementById('ath-market-cap')
+    const $volume24 = document.getElementById('volume24-ath')
+    const $porcentage = document.getElementById('porcentage-lost')
+    addText($btc_dominance,bitcoin_dominance_percentage);
+    addText($crypto_number,cryptocurrencies_number);
+    addText($ath,market_cap_ath_value);
+    addText($volume24,volume_24h_ath_value);
+    let porcentage_lost = ((market_cap_usd*100)/market_cap_ath_value)-100;
+    addText($porcentage,porcentage_lost);
+
+}
+const addText = (node,text)=>{
+    node.innerText = text
+}
+
+const drawBarChart = (market_cap_usd,volume_24h_usd) =>{
+
+    var options = {
+        chart: {
+          type: 'bar'
+        },
+        series: [{
+          name: 'value',
+          data: [market_cap_usd,volume_24h_usd]
+        }],
+        xaxis: {
+          categories: ["Total market cap usd", "Last 24h volume usd"]
+        },
+        yaxis: {
+            labels: {
+              /**
+              * Allows users to apply a custom formatter function to yaxis labels.
+              *
+              * @param { String } value - The generated value of the y-axis tick
+              * @param { index } index of the tick / currently executing iteration in yaxis labels array
+              */
+              formatter: function(val, index) {
+                console.log(val)
+                return val.toPrecision(1);
+              }
+            }
+          }
+
+    }
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+      
+
+}
+
 const getCoinsList = () =>{
     fetch('https://api.coinpaprika.com/v1/tickers')
     .then(res => res.json())
@@ -35,17 +79,7 @@ const getCoinsList = () =>{
         for (let i = 0; i < 100;i++){
             const data = json[i];
             const {
-                beta_value,
-                circulating_supply,
-                first_data_at,
-                id,
-                last_updated,
-                max_supply,
                 name,
-                quotes,
-                rank,
-                ol,
-                total_supply,
             } = data;
             const plantilla = `
             <option value="${name}"></option>
@@ -56,41 +90,10 @@ const getCoinsList = () =>{
 
         }
     })
-}
-
-
-
-const createTableInfo = (property,value)=>{
-    const tr = document.createElement('tr');
-    const left_td = document.createElement('td');
-    const rigth_td = document.createElement('td');
-    left_td.classList.add('table-tag')
-    left_td.innerText=property
-    rigth_td.innerText = value
-    tr.append(left_td,rigth_td)
-    $market_overview.appendChild(tr)
-
-}
-var options = {
-    chart: {
-      type: 'bar'
-    },
-    series: [{
-      name: 'sales',
-      data: [30,40,45,50,49,60,70,91,125]
-    }],
-    xaxis: {
-      categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-    }
-  }
-  
-  
-
-
+}  
 
 window.addEventListener('DOMContentLoaded',()=>{
     getMarketOverviewInfo();
     getCoinsList();
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
+   
 })
