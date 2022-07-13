@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Tabs and pills - UI elements | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
     <meta name="description" content="" />
 
@@ -49,9 +49,12 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="../assets/css/index.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
@@ -139,7 +142,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item">
+            <li class="menu-item active">
               <a href="index.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -259,7 +262,7 @@
               </a>
             </li>
             <!-- User interface -->
-            <li class="menu-item active open">
+            <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">User interface</div>
@@ -340,7 +343,7 @@
                     <div data-i18n="Spinners">Spinners</div>
                   </a>
                 </li>
-                <li class="menu-item active">
+                <li class="menu-item">
                   <a href="ui-tabs-pills.html" class="menu-link">
                     <div data-i18n="Tabs &amp; Pills">Tabs &amp; Pills</div>
                   </a>
@@ -482,11 +485,15 @@
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
+                    list="coins-input"
+                    id="search"
                     type="text"
                     class="form-control border-0 shadow-none"
                     placeholder="Search..."
                     aria-label="Search..."
                   />
+                  <datalist id = "coins-input">
+                  </datalist>
                 </div>
               </div>
               <!-- /Search -->
@@ -575,351 +582,161 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">UI elements /</span> Tabs & Pills</h4>
-
-              <!-- Tabs -->
-              <h5 class="py-3 my-4">Tabs</h5>
-
-              <div class="row">
-                <div class="col-xl-6">
-                  <h6 class="text-muted">Basic</h6>
-                  <div class="nav-align-top mb-4">
-                    <ul class="nav nav-tabs" role="tablist">
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link active"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-top-home"
-                          aria-controls="navs-top-home"
-                          aria-selected="true"
-                        >
-                          Home
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-top-profile"
-                          aria-controls="navs-top-profile"
-                          aria-selected="false"
-                        >
-                          Profile
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-top-messages"
-                          aria-controls="navs-top-messages"
-                          aria-selected="false"
-                        >
-                          Messages
-                        </button>
-                      </li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="navs-top-home" role="tabpanel">
-                        <p>
-                          Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps
-                          powder. Bear claw candy topping.
-                        </p>
-                        <p class="mb-0">
-                          Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon
-                          jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow
-                          jujubes sweet.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-top-profile" role="tabpanel">
-                        <p>
-                          Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                          cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-                          cheesecake fruitcake.
-                        </p>
-                        <p class="mb-0">
-                          Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-                          cotton candy liquorice caramels.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-top-messages" role="tabpanel">
-                        <p>
-                          Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
-                          cupcake gummi bears cake chocolate.
-                        </p>
-                        <p class="mb-0">
-                          Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake. Sweet
-                          roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding jelly
-                          jelly-o tart brownie jelly.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <h1 id="page-title" class="display-4 m-2"> Crypto Currencies market overview</h1>
+              <div class="row justify-content-center align-items-center gap-3 mb-3">
+                <div id="line-chart" class="col-md-12 col-lg-6">
                 </div>
-                <div class="col-xl-6">
-                  <h6 class="text-muted">Filled Tabs</h6>
-                  <div class="nav-align-top mb-4">
-                    <ul class="nav nav-tabs nav-fill" role="tablist">
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link active"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-justified-home"
-                          aria-controls="navs-justified-home"
-                          aria-selected="true"
-                        >
-                          <i class="tf-icons bx bx-home"></i> Home
-                          <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger">3</span>
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-justified-profile"
-                          aria-controls="navs-justified-profile"
-                          aria-selected="false"
-                        >
-                          <i class="tf-icons bx bx-user"></i> Profile
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-justified-messages"
-                          aria-controls="navs-justified-messages"
-                          aria-selected="false"
-                        >
-                          <i class="tf-icons bx bx-message-square"></i> Messages
-                        </button>
-                      </li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="navs-justified-home" role="tabpanel">
-                        <p>
-                          Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps
-                          powder. Bear claw candy topping.
-                        </p>
-                        <p class="mb-0">
-                          Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon
-                          jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow
-                          jujubes sweet.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-justified-profile" role="tabpanel">
-                        <p>
-                          Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                          cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-                          cheesecake fruitcake.
-                        </p>
-                        <p class="mb-0">
-                          Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-                          cotton candy liquorice caramels.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-justified-messages" role="tabpanel">
-                        <p>
-                          Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
-                          cupcake gummi bears cake chocolate.
-                        </p>
-                        <p class="mb-0">
-                          Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake. Sweet
-                          roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding jelly
-                          jelly-o tart brownie jelly.
-                        </p>
+
+                <div class="row justify-content-center col-md-12 col-lg-5 gap-3">
+                  <div class = "col-md-12 col-lg-12" id="pie-chart"></div>
+                  </div>
+                 
+
+                </div>
+                <div id = "middle-content-information" class="row justify-content-center gap-3">
+
+                  <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img
+                              src="../assets/img/icons/unicons/chart-success.png"
+                              alt="chart success"
+                              class="rounded"
+                            />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt3"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                        <span class="fw-semibold d-block mb-1">All time High Market Cap</span>
+                        <h3 id="ath-market-cap" class="fs-6 mb-2 mt-2"></h3>
                       </div>
                     </div>
                   </div>
+
+                  <div class="col-md-3  ">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img
+                              src="../assets/img/icons/unicons/wallet-info.png"
+                              alt="Credit Card"
+                              class="rounded"
+                            />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt6"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                        <span class="fw-semibold d-block mb-1">Max Sypply</span>
+                        <h3 id = "volume24-ath"class="fs-6 mb-1 mt-2"></h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3  ">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title d-flex align-items-start justify-content-between">
+                          <div class="avatar flex-shrink-0">
+                            <img
+                              src="../assets/img/dashboard_images/tendencia-negativa.png"
+                              alt="Credit Card"
+                              class="rounded"
+                            />
+                          </div>
+                          <div class="dropdown">
+                            <button
+                              class="btn p-0"
+                              type="button"
+                              id="cardOpt6"
+                              data-bs-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                              <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                        <span class="fw-semibold d-block mb-1">Porcentage Lost</span>
+                        <h3 id = "porcentage-lost" class="fs-6 mb-1 mt-2"></h3>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-              <!-- Tabs -->
 
-              <hr class="container-m-nx border-light mt-5" />
-
-              <!-- Pills -->
-              <h5 class="py-3 my-4">Pills</h5>
-
-              <div class="row">
-                <div class="col-xl-6">
-                  <h6 class="text-muted">Basic</h6>
-                  <div class="nav-align-top mb-4">
-                    <ul class="nav nav-pills mb-3" role="tablist">
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link active"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-top-home"
-                          aria-controls="navs-pills-top-home"
-                          aria-selected="true"
-                        >
-                          Home
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-top-profile"
-                          aria-controls="navs-pills-top-profile"
-                          aria-selected="false"
-                        >
-                          Profile
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-top-messages"
-                          aria-controls="navs-pills-top-messages"
-                          aria-selected="false"
-                        >
-                          Messages
-                        </button>
-                      </li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="navs-pills-top-home" role="tabpanel">
-                        <p>
-                          Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps
-                          powder. Bear claw candy topping.
-                        </p>
-                        <p class="mb-0">
-                          Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon
-                          jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow
-                          jujubes sweet.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-top-profile" role="tabpanel">
-                        <p>
-                          Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                          cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-                          cheesecake fruitcake.
-                        </p>
-                        <p class="mb-0">
-                          Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-                          cotton candy liquorice caramels.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-top-messages" role="tabpanel">
-                        <p>
-                          Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
-                          cupcake gummi bears cake chocolate.
-                        </p>
-                        <p class="mb-0">
-                          Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake. Sweet
-                          roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding jelly
-                          jelly-o tart brownie jelly.
-                        </p>
-                      </div>
+              <div class="row justify-content-center gap-3">
+                <div class="col-12 col-md-3">
+                  <div class="card h-100">
+                    <img class="card-img-top card__main" src="../assets/img/dashboard_images/exchanges.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Exchanges</h5>
+                      <p class="card-text">
+                        Here you can view all exchanges listed on paprika api
+                      </p>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-xl-6">
-                  <h6 class="text-muted">Filled Pills</h6>
-                  <div class="nav-align-top mb-4">
-                    <ul class="nav nav-pills mb-3 nav-fill" role="tablist">
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link active"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-justified-home"
-                          aria-controls="navs-pills-justified-home"
-                          aria-selected="true"
-                        >
-                          <i class="tf-icons bx bx-home"></i> Home
-                          <span class="badge rounded-pill badge-center h-px-20 w-px-20 bg-danger">3</span>
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-justified-profile"
-                          aria-controls="navs-pills-justified-profile"
-                          aria-selected="false"
-                        >
-                          <i class="tf-icons bx bx-user"></i> Profile
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button
-                          type="button"
-                          class="nav-link"
-                          role="tab"
-                          data-bs-toggle="tab"
-                          data-bs-target="#navs-pills-justified-messages"
-                          aria-controls="navs-pills-justified-messages"
-                          aria-selected="false"
-                        >
-                          <i class="tf-icons bx bx-message-square"></i> Messages
-                        </button>
-                      </li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="navs-pills-justified-home" role="tabpanel">
-                        <p>
-                          Icing pastry pudding oat cake. Lemon drops cotton candy caramels cake caramels sesame snaps
-                          powder. Bear claw candy topping.
-                        </p>
-                        <p class="mb-0">
-                          Tootsie roll fruitcake cookie. Dessert topping pie. Jujubes wafer carrot cake jelly. Bonbon
-                          jelly-o jelly-o ice cream jelly beans candy canes cake bonbon. Cookie jelly beans marshmallow
-                          jujubes sweet.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-justified-profile" role="tabpanel">
-                        <p>
-                          Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice
-                          cream. Gummies halvah tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream
-                          cheesecake fruitcake.
-                        </p>
-                        <p class="mb-0">
-                          Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah
-                          cotton candy liquorice caramels.
-                        </p>
-                      </div>
-                      <div class="tab-pane fade" id="navs-pills-justified-messages" role="tabpanel">
-                        <p>
-                          Oat cake chupa chups dragée donut toffee. Sweet cotton candy jelly beans macaroon gummies
-                          cupcake gummi bears cake chocolate.
-                        </p>
-                        <p class="mb-0">
-                          Cake chocolate bar cotton candy apple pie tootsie roll ice cream apple pie brownie cake. Sweet
-                          roll icing sesame snaps caramels danish toffee. Brownie biscuit dessert dessert. Pudding jelly
-                          jelly-o tart brownie jelly.
-                        </p>
-                      </div>
+                <div class="col-12 col-md-3">
+                  <div class="card h-100">
+                    <img class="card-img-top card__main" src="../assets/img/dashboard_images/coins.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Check newest coins</h5>
+                      <p class="card-text">
+                        Here you can check all new crytpo coins 
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- Pills -->
+                <div class="col-12 col-md-3">
+                  <div class="card h-100">
+                    <img class="card-img-top card__main" src="../assets/img/dashboard_images/top_ranking.webp" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Ranking</h5>
+                      <p class="card-text">
+                        here you can check the best coins based on market cap.
+                      </p>
+                    </div>
+                  </div>
+                </div>
             </div>
+          </div>
+            
             <!-- / Content -->
 
             <!-- Footer -->
@@ -987,13 +804,18 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="../js/coins.js" defer></script>
+    
   </body>
 </html>

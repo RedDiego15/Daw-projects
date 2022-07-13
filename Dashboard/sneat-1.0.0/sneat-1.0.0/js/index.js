@@ -3,7 +3,7 @@ const $container_data_coins = document.getElementById('container-data-coins');
 const $search = document.getElementById('search');
 const $pageTitle = document.getElementById('page-title');
 const $middle_content_information = document.getElementById('middle-content-information');
-
+const priceData = []
 const getMarketOverviewInfo = ()=>{
     fetch('https://api.coinpaprika.com/v1/global')
     .then(res => res.json())
@@ -77,22 +77,27 @@ const drawBarChart = (market_cap_usd,volume_24h_usd) =>{
 }
 
 const getCoinsList = () =>{
-    fetch('https://api.coinpaprika.com/v1/tickers')
+    fetch('https://api.coincap.io/v2/assets')
     .then(res => res.json())
     .then(json => {
-        for (let i = 0; i < 100;i++){
-            const data = json[i];
+        const data = json.data;
+
+        data.forEach(coin =>{
             const {
                 name,
-            } = data;
+                id
+            } = coin;
             const plantilla = `
-            <option value="${name}"></option>
+            <option value=${id} label= ${name}></option>
             `
             const option = document.createElement('option');
             option.innerHTML = plantilla;
             $coins_input.appendChild(option)
 
-        }
+
+        })
+        
+       
     })
 }  
 
@@ -101,3 +106,14 @@ window.addEventListener('DOMContentLoaded',()=>{
     getCoinsList();
    
 })
+$search.addEventListener ('keypress',(e)=>{
+    
+    if (e.key === 'Enter') {
+        let location = window.location.href
+        let locationArray = location.split('/')
+        locationArray.splice(locationArray.length-1,locationArray.length-1);
+        let coinName = e.target.value;
+        locationArray.push(`coinData.html?=${coinName}`);
+        window.location.href = locationArray.join('/')
+    }
+  })
