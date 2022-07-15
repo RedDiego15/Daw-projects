@@ -3,6 +3,7 @@ const $container_data_coins = document.getElementById('container-data-coins');
 const $search = document.getElementById('search');
 const $pageTitle = document.getElementById('page-title');
 const $middle_content_information = document.getElementById('middle-content-information');
+const $searchIcon = document.getElementById('search-icon');
 const priceData = []
 const getMarketOverviewInfo = ()=>{
     fetch('https://api.coinpaprika.com/v1/global')
@@ -109,11 +110,25 @@ window.addEventListener('DOMContentLoaded',()=>{
 $search.addEventListener ('keypress',(e)=>{
     
     if (e.key === 'Enter') {
+        debugger;
         let location = window.location.href
         let locationArray = location.split('/')
         locationArray.splice(locationArray.length-1,locationArray.length-1);
         let coinName = e.target.value;
-        locationArray.push(`coinData.html?=${coinName}`);
+        locationArray.push(`/html/coinData.html?=${coinName}`);
         window.location.href = locationArray.join('/')
     }
   })
+
+$searchIcon.addEventListener('click',(e)=>{
+    if($search.value===''){
+        alert("Seleccion un crypto activo a investigar");
+    }else{
+        let location = window.location.href
+        let locationArray = location.split('/')
+        locationArray.splice(locationArray.length-1,locationArray.length-1);
+        let coinName = e.target.value;
+        locationArray.push(`/html/coinData.html?=${coinName}`);
+        window.location.href = locationArray.join('/')
+    }
+})
