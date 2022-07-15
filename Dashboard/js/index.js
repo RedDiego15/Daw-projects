@@ -64,8 +64,7 @@ const drawBarChart = (market_cap_usd,volume_24h_usd) =>{
               * @param { index } index of the tick / currently executing iteration in yaxis labels array
               */
               formatter: function(val, index) {
-                console.log(val)
-                return val.toPrecision(1);
+                return val.toFixed(2);
               }
             }
           }

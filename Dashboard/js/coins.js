@@ -175,7 +175,7 @@ const drawLineChart = async () =>{
      console.log("procede a options")
     var options = {
         series: [{
-        name: 'BTC PRICE',
+        name: `${coinId} Price`,
         data: priceHistoricalData
       }],
         chart: {
