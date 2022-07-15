@@ -4,7 +4,8 @@ const $search = document.getElementById('search');
 const $pageTitle = document.getElementById('page-title');
 const $middle_content_information = document.getElementById('middle-content-information');
 const $searchIcon = document.getElementById('search-icon');
-const priceData = []
+const $exhangesDataList = document.getElementById('exhanges-data-list');
+let exchangeData =[];
 const getMarketOverviewInfo = ()=>{
     fetch('https://api.coinpaprika.com/v1/global')
     .then(res => res.json())
@@ -16,6 +17,35 @@ const getMarketOverviewInfo = ()=>{
         drawBarChart(market_cap_usd,volume_24h_usd)
         fillMarketOverviewInformation(json)
     })
+}
+const getExchangeData = async ()=>{
+    return fetch('https://api.coincap.io/v2/exchanges')
+    .then(res => res.json())
+    .then(json => {
+       return json.data
+    })
+
+
+}
+const fillRankingTopic = () =>{
+    const arr = [
+        "PercentTotalVolume",
+        "VolumeUsd",
+        "TradingPairs",
+    ]
+
+    arr.forEach(value => {
+   
+        const plantilla = 
+            `
+            <option value=${value} selected></option>
+            `        
+        const option = document.createElement('option');
+        option.innerHTML = plantilla;
+        $exhangesDataList.appendChild(option)
+
+    })
+    
 }
 const fillMarketOverviewInformation = (json)=>{
     const{
@@ -101,9 +131,10 @@ const getCoinsList = () =>{
     })
 }  
 
-window.addEventListener('DOMContentLoaded',()=>{
+window.addEventListener('DOMContentLoaded',async ()=>{
     getMarketOverviewInfo();
     getCoinsList();
+    exchangeData = await getExchangeData();
    
 })
 $search.addEventListener ('keypress',(e)=>{
