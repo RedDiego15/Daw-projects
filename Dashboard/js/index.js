@@ -4,7 +4,9 @@ const $search = document.getElementById('search');
 const $pageTitle = document.getElementById('page-title');
 const $middle_content_information = document.getElementById('middle-content-information');
 const $searchIcon = document.getElementById('search-icon');
-const $exhangesDataList = document.getElementById('exhanges-data-list');
+const $exhangesDataList = document.getElementById('exchanges-data-list');
+const $exchangeInput = document.getElementById('exchange-input');
+const $rankingChart = document.getElementById('ranking-chart');
 let exchangeData =[];
 const getMarketOverviewInfo = ()=>{
     fetch('https://api.coinpaprika.com/v1/global')
@@ -33,18 +35,19 @@ const fillRankingTopic = () =>{
         "VolumeUsd",
         "TradingPairs",
     ]
-
     arr.forEach(value => {
    
         const plantilla = 
             `
-            <option value=${value} selected></option>
+            <option value=${value}></option>
             `        
         const option = document.createElement('option');
         option.innerHTML = plantilla;
         $exhangesDataList.appendChild(option)
 
     })
+    drawRanking();
+
     
 }
 const fillMarketOverviewInformation = (json)=>{
@@ -131,16 +134,137 @@ const getCoinsList = () =>{
     })
 }  
 
+function sortByPercent(x,y){
+    if(x.percentTotalVolume < y.percentTotalVolume) {return -1}
+    if(x.percentTotalVolume > y.percentTotalVolume) {return 1}
+    return 0;
+}
+function sortByPairs(x,y){
+    if(x.tradingPairs < y.tradingPairs) {return -1}
+    if(x.tradingPairs > y.tradingPairs) {return 1}
+    return 0;
+}
+
+
+const drawRanking = () => {
+    let topic = $exchangeInput.value
+    const drawdata = []
+    const namesSorted = [];
+    
+    if(topic ==='VolumeUsd'){
+        const sortArr = exchangeData.slice(0,10);
+        sortArr.forEach(data =>{
+        
+            const{
+                name,
+                volumeUsd,
+            } = data
+            drawdata.push(parseFloat(volumeUsd).toFixed(2));
+            namesSorted.push(name);
+        })
+        
+    }
+    else if (topic === "PercentTotalVolume"){
+        const sortArr = exchangeData.sort(sortByPercent);
+        sortArr.forEach(data =>{
+        
+            const{
+                name,
+                percentTotalVolume
+            } = data
+            drawdata.push(parseFloat(percentTotalVolume).toFixed(2));
+            namesSorted.push(name);
+
+        })
+    }else if (topic ==='TradingPairs')
+    {
+        const sortArr = exchangeData.sort(sortByPairs);
+        sortArr.forEach(data =>{
+        
+            const{
+                name,
+                tradingPairs
+            } = data
+            drawdata.push(parseFloat(tradingPairs).toFixed(2));
+            namesSorted.push(name);
+
+        })
+    }
+    if(drawdata.length > 0){
+        options = {
+            chart: {
+              type: 'bar',
+              height: 350,
+            },
+            series: [{ 
+                name:topic,
+                data:drawdata
+            }],
+            
+            plotOptions: {
+                bar: {
+                  horizontal: false,
+                  columnWidth: '30%',
+                  endingShape: 'rounded'
+                },
+              },
+              dataLabels: {
+                enabled: false
+              },
+              stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+              },
+              xaxis: {
+                title: {
+                    text:'Exhanges'
+                },
+                categories: namesSorted,
+              },
+              yaxis: {
+                title: {
+                  text: topic
+                }
+              },
+              fill: {
+                opacity: 1
+              },
+              animations: {
+                enabled: true,
+                easing: 'easeinout',
+                speed: 800,
+                animateGradually: {
+                    enabled: true,
+                    delay: 150
+                },
+                dynamicAnimation: {
+                    enabled: true,
+                    speed: 350
+                }
+            }
+        }
+    
+        var chart = new ApexCharts($rankingChart, options);
+        chart.render();
+    
+    }
+    
+
+}
+
+
 window.addEventListener('DOMContentLoaded',async ()=>{
     getMarketOverviewInfo();
     getCoinsList();
     exchangeData = await getExchangeData();
+    fillRankingTopic();
    
 })
 $search.addEventListener ('keypress',(e)=>{
     
     if (e.key === 'Enter') {
-        debugger;
+        
         let location = window.location.href
         let locationArray = location.split('/')
         locationArray.splice(locationArray.length-1,locationArray.length-1);
@@ -162,3 +286,4 @@ $searchIcon.addEventListener('click',(e)=>{
         window.location.href = locationArray.join('/')
     }
 })
+$exchangeInput.addEventListener('')
