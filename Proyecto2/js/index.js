@@ -286,4 +286,11 @@ $searchIcon.addEventListener('click',(e)=>{
         window.location.href = locationArray.join('/')
     }
 })
-$exchangeInput.addEventListener('')
+$exchangeInput.addEventListener('change',(e) =>{
+    debugger;
+    let value = e.target.value;
+    if(value ==='VolumeUsd' || value ==='PercentTotalVolume' || value ==='TradingPairs'){
+        drawRanking();
+    }
+
+})
