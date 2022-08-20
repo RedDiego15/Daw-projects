@@ -1,0 +1,13 @@
+.size-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:2.5rem;
+  height:2.5rem;
+  background-color:#F7F4E5;
+}
+.styled-size{
+    color : #82821C;
+    font-size:1.1rem;
+    margin: 0;
+}

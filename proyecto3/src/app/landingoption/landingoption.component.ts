@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-landingoption',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingoptionComponent implements OnInit {
 
+  @Input() title:string = 'Landing'
   constructor() { }
 
   ngOnInit(): void {

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
 import { LandingcarousellComponent } from './landingcarousell/landingcarousell.component';
 import { LandingoptionComponent } from './landingoption/landingoption.component';
 import { SizesComponent } from './sizes/sizes.component';
@@ -16,6 +15,10 @@ import { LandingComponent } from './landing/landing.component';
 import { ItemComponent } from './item/item.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import {MatIconModule} from '@angular/material/icon';
+import {HeaderComponent} from './header/header.component';
+import { CarouselItemComponent } from './carousel-item/carousel-item.component';
+import { CategoryComponent } from './category/category.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,16 @@ import {MatIconModule} from '@angular/material/icon';
     FinishpurchasecontainerComponent,
     LandingComponent,
     ItemComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    CarouselItemComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

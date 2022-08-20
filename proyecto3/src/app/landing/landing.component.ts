@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemsService } from '../services/items.service'
+import {Item} from '../models/item.model'
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  categories:string[] = [];
+
+  constructor(
+    private itemsService:ItemsService
+  ) { }
 
   ngOnInit(): void {
+    this.itemsService.getAll()
+    .subscribe(data => {
+      this.categories = [...new Set (data.map(item => item.category))];
+      this.categories = this.categories.filter(cat => {return cat!=null});
+    })
+
+
   }
+
+
+
 
 }

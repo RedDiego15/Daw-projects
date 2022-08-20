@@ -1,1 +1,19 @@
-<p>purchase works!</p>
+<app-header></app-header>
+<p class="title">My Order</p>
+<div class="item-container">
+  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem></app-purchaseitem>
+</div>
+<div class="styled-line"></div>
+<div class="row wrap-total">
+  <p class="total-text">
+    Total: <span class="price-text">${{total}}</span>
+  </p>
+</div>
+<div class="wrap">
+  <app-addcartbtn title="Finish Purchase"></app-addcartbtn>
+</div>

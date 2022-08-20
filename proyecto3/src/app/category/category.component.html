@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="title-container">
+  <p class="title">{{categoryId}}</p>
+  <input list = "order" placeholder = "sort by" type="text" class="sort-input">
+  <datalist id = "order">
+    <option value="price"></option>
+    <option value="stock"></option>
+
+  </datalist>
+  <div class="products">
+      <app-item *ngFor = "let item of items"
+      title="{{item.nombre}}"
+      price="{{item.precio}}"
+      urlImg="{{item.urlImg}}"
+      itemId="{{item.id}}"
+      ></app-item>
+
+  </div>
+</div>

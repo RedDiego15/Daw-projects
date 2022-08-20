@@ -1,4 +1,6 @@
-body{
-  background: rgb(2,73,93);
-  background: linear-gradient(0deg, rgba(2,73,93,1) 0%, rgba(247,244,229,1) 100%);
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
 }

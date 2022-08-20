@@ -1,0 +1,13 @@
+.styled-button{
+  margin:1rem 0;
+  width:14rem;
+  height:3rem;
+  border-radius:25px;
+  background:#F7F4E5;
+  color: #82821C;
+  font-size:1.3rem;
+  align-self:center;
+  outline:none;
+  border:none;
+  margin-top:2rem;
+}

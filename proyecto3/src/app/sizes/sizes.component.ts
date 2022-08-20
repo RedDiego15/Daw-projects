@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-sizes',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sizes.component.css']
 })
 export class SizesComponent implements OnInit {
-
+  @Input() size:string = '7';
   constructor() { }
 
   ngOnInit(): void {

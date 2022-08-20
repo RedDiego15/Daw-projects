@@ -1,0 +1,24 @@
+.title-container{
+  display: flex;
+  flex-direction: column;
+  gap:1.5rem;
+  align-items:center;
+}
+.title{
+  font-size:2.2rem;
+}
+.sort-input{
+  width:5rem;
+  height:1rem;
+  background:#F7F4E5;
+  outline:none;
+  border:none;
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-auto-flow:row;
+  padding:10px;
+  max-height: 28rem;
+  overflow-y: scroll;
+}

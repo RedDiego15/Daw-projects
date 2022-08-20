@@ -1,0 +1,37 @@
+.title{
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+}
+.item-container{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-height: 17rem;
+  overflow: scroll;
+}
+.styled-line{
+  border-top: 2px solid #82821C;
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.total-text{
+  font-size:1rem;
+  color:white;
+}
+.wrap-total{
+  margin-top:1.5rem;
+  margin-left: 1.5rem;
+}
+.price-text{
+  font-size:1rem;
+    color : #82821C;
+}
+.wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -12,3 +12,8 @@
   display: flex;
   gap:0.2rem;
 }
+.page-title{
+  margin: 0;
+  font-size: 1.3rem;
+  align-self: center;
+}

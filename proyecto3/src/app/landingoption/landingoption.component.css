@@ -1,0 +1,17 @@
+.option{
+  display:grid;
+    grid-template-columns: 30% 1fr;
+    background:#F7F4E5;
+    height:4rem;
+    align-items:center;
+    justify-items:center;
+    box-shadow: 5px 9px 7px -3px #000000;
+}
+
+.title{
+  font-size: 1.6rem;
+}
+.landing__icon{
+  width:22px;
+  height:22px;
+}
