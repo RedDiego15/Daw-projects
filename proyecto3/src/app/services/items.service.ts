@@ -16,4 +16,7 @@ export class ItemsService {
   getItemsByCategory(category:string){
     return this.http.get<Item[]>(`http://localhost:3000/api/items/${category}`)
   }
+  getItem(id:string){
+    return this.http.get<Item>(`http://localhost:3000/api/items/item/${id}`)
+  }
 }

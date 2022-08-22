@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {Item} from '../models/item.model';
 import { ActivatedRoute } from '@angular/router';
+import {ItemsService} from '../services/items.service'
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ItemdetailsComponent implements OnInit {
     urlImg:'',
   }
   constructor(
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private itemsService:ItemsService
     ){
 
     }
@@ -30,7 +32,16 @@ export class ItemdetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.shoeId = params.get('id');
       console.log(`El shoe id: ${this.shoeId}`);
-  })
+    })
+
+    if(this.shoeId !=null){
+      this.itemsService.getItem(this.shoeId)
+      .subscribe(infoItem =>{
+        this.item = infoItem;
+        console.log(infoItem);
+      })
+    }
+
   }
 
 }
