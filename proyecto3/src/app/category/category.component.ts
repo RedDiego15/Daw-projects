@@ -33,6 +33,7 @@ export class CategoryComponent implements OnInit {
     if(this.categoryId !=null){
       this.itemsService.getItemsByCategory(this.categoryId).subscribe(data =>{
         this.items = data;
+        console.log(this.items)
         })
 
     }

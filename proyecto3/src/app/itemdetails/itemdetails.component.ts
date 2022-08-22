@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {Item} from '../models/item.model';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class ItemdetailsComponent implements OnInit {
   shoeId:string  | null ='';
 
   item:Item ={
-    id:5,
+    idItem:5,
     nombre:'Jordan 1',
     descripcion:'Lorem impsum ',
     precio:150,

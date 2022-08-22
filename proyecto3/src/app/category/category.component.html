@@ -9,10 +9,11 @@
   </datalist>
   <div class="products">
       <app-item *ngFor = "let item of items"
+      id="{{item.idItem}}"
       title="{{item.nombre}}"
       price="{{item.precio}}"
       urlImg="{{item.urlImg}}"
-      itemId="{{item.id}}"
+
       ></app-item>
 
   </div>

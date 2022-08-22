@@ -9,7 +9,7 @@ export class PurchaseitemComponent implements OnInit {
   @Input() idItem:string='';
   cantidad:number=0;
   item:Item = {
-    id:0,
+    idItem:0,
     nombre:'Jordan 1',
     descripcion:'asdfds',
     precio:150,
