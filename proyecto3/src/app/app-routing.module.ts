@@ -10,7 +10,7 @@ import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
   { path: "landing", component: LandingComponent },
-  { path: "itemdetails", component: ItemdetailsComponent },
+  { path: "itemdetails/:id", component: ItemdetailsComponent },
   { path: "purchase", component: PurchaseComponent },
   { path: "category/:id", component: CategoryComponent },
   { path: "**", redirectTo: "landing" }

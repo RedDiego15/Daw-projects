@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../models/item.model';
+import { ActivatedRoute } from '@angular/router';
+
+
 @Component({
   selector: 'app-itemdetails',
   templateUrl: './itemdetails.component.html',
@@ -7,17 +10,27 @@ import {Item} from '../models/item.model';
 })
 export class ItemdetailsComponent implements OnInit {
 
+  shoeId:string  | null ='';
+
   item:Item ={
-    id:0,
+    id:5,
     nombre:'Jordan 1',
     descripcion:'Lorem impsum ',
     precio:150,
     category:'',
     urlImg:'',
   }
-  constructor() { }
+  constructor(
+    private route:ActivatedRoute
+    ){
+
+    }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.shoeId = params.get('id');
+      console.log(`El shoe id: ${this.shoeId}`);
+  })
   }
 
 }

@@ -5,6 +5,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class StoreService {
 
+  buyingShoes = [];
+
+
+
   constructor(
     private http: HttpClient
   ) { }
