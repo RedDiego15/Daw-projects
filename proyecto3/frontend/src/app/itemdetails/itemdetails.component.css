@@ -32,3 +32,8 @@
   flex-wrap:wrap;
   gap:1rem;
 }
+.btn_container{
+  display:flex;
+  width:100%;
+  justify-content:center;
+}

@@ -1,0 +1,65 @@
+{
+    "config": {
+      "locale": "en"
+    },
+    "model": {
+      "type": "Object",
+      "value": {
+        "id": {
+          "type": "incrementNumber",
+          "options": {
+            "from": 1
+          }
+        },
+        "timesClicked": {
+          "type": "randomNumberBetween",
+          "value": [1, 2500000]
+        },
+        "updatedAt": {
+          "type": "faker",
+          "value": "date.recent"
+        },
+        "publicationDate": {
+          "type": "faker",
+          "value": "date.between",
+          "options": ["2019-01-02", "2019-12-29"]
+        },
+        "TimesBuyed": {
+            "type": "randomNumberBetween",
+            "value": [100, 2500]
+        },
+        "stats": {
+          "type": "Array",
+          "options": {
+            "size": 3
+          },
+          "value": {
+            "type": "Object",
+            "value": {
+              "likes": {
+                "type": "randomNumberBetween",
+                "value": [0, 40]
+              },
+              "dislikes": {
+                "type": "randomNumberBetween",
+                "value": [0, 40]
+              }
+            }
+          }
+        },
+        "Colaborator": {
+          "type": "Object",
+          "value": {
+            "firstName": {
+              "type": "faker",
+              "value": "name.firstName"
+            },
+            "lastName": {
+              "type": "faker",
+              "value": "name.lastName"
+            }
+            }
+        }
+      }
+    }
+  }
