@@ -1,0 +1,23 @@
+<div class="comment-container">
+  <app-header></app-header>
+  <div class="container-search">
+    <div class="title">{{item.nombre}}</div>
+    <select (change) = "chargeComments($event)" name = "order" placeholder = "Search comments of another shoe" type="text" class="sort-input">
+      <option *ngFor="let loadItem of items" value="{{loadItem.idItem}}">{{loadItem.nombre}}</option>
+
+    </select>
+
+  </div>
+  <div id="comments" >
+    <div class="comment" *ngFor="let comment of comments ">
+      <div class="comment-header">
+        <p class="comment-txt"><span class="comment-heading">Publication Date:</span> {{comment.date}}</p>
+        <p class="comment-txt"><span class="comment-heading">Comment Number:</span>{{comment.commentsNumber}}</p>
+      </div>
+      <p class="comment-txt">
+        {{comment.comment}}
+      </p>
+    </div>
+  </div>
+
+</div>

@@ -16,7 +16,11 @@ export class ItemsService {
   getItemsByCategory(category:string){
     return this.http.get<Item[]>(`http://localhost:3000/api/items/${category}`)
   }
-  getItem(id:string){
-    return this.http.get<Item>(`http://localhost:3000/api/items/item/${id}`)
+   getItem(id:string){
+    return  this.http.get<Item>(`http://localhost:3000/api/items/item/${id}`)
+  }
+
+  getItemCommentsData(id:string){
+    return this.http.get<any[]>(`https://shoescommentdata-default-rtdb.firebaseio.com/comments.json?orderBy=%22shoeId%22&equalTo=${id}`)
   }
 }

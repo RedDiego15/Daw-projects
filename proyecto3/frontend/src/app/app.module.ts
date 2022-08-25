@@ -19,6 +19,7 @@ import {HeaderComponent} from './header/header.component';
 import { CarouselItemComponent } from './carousel-item/carousel-item.component';
 import { CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     PurchaseComponent,
     CarouselItemComponent,
     CategoryComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

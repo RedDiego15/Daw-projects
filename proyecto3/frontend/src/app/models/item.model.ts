@@ -2,7 +2,7 @@ export interface Item{
   idItem:Number,
   nombre:string,
   descripcion:string,
-  precio:Number,
+  precio:number,
   category:string,
   urlImg:string,
 

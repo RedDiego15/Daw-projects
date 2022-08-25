@@ -35,9 +35,7 @@ export class CategoryComponent implements OnInit {
         this.items = data;
         console.log(this.items)
         })
-
     }
-
   }
 
 }

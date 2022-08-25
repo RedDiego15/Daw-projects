@@ -1,12 +1,12 @@
-<app-header></app-header>
+<div class="purchase-container">
+  <app-header></app-header>
 <p class="title">My Order</p>
 <div class="item-container">
-  <app-purchaseitem></app-purchaseitem>
-  <app-purchaseitem></app-purchaseitem>
-  <app-purchaseitem></app-purchaseitem>
-  <app-purchaseitem></app-purchaseitem>
-  <app-purchaseitem></app-purchaseitem>
-  <app-purchaseitem></app-purchaseitem>
+  <app-purchaseitem *ngFor = "let buyeditem of items"
+   [item]="buyeditem.item"
+   [cantidad]="buyeditem.quantity"
+   ></app-purchaseitem>
+
 </div>
 <div class="styled-line"></div>
 <div class="row wrap-total">
@@ -16,4 +16,6 @@
 </div>
 <div class="wrap">
   <app-addcartbtn title="Finish Purchase"></app-addcartbtn>
+</div>
+
 </div>

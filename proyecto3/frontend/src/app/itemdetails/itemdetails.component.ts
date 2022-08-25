@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import {Item} from '../models/item.model';
 import { ActivatedRoute } from '@angular/router';
 import {ItemsService} from '../services/items.service'
+import {StoreService} from '../services/store.service'
 
 
 @Component({
@@ -23,7 +24,8 @@ export class ItemdetailsComponent implements OnInit {
   }
   constructor(
     private route:ActivatedRoute,
-    private itemsService:ItemsService
+    private itemsService:ItemsService,
+    private storeService:StoreService
     ){
 
     }
@@ -42,6 +44,10 @@ export class ItemdetailsComponent implements OnInit {
       })
     }
 
+  }
+
+  addcartbtn(){
+    this.storeService.addToCart(this.item);
   }
 
 }

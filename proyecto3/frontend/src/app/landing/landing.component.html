@@ -1,6 +1,9 @@
-<app-header></app-header>
-<app-landingcarousell></app-landingcarousell>
-<div class="options">
-  <app-landingoption *ngFor="let category of categories " title="{{category}}"></app-landingoption>
+<div class="landing-container">
+  <app-header></app-header>
+  <app-landingcarousell></app-landingcarousell>
+  <div class="options">
+    <app-landingoption *ngFor="let category of categories " title="{{category}}"></app-landingoption>
+  </div>
 </div>
+
 

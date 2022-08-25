@@ -28,7 +28,11 @@
 .cant-text{
   font-size:1rem;
   color:white;
+  margin: 0;
 }
 .regular-text{
   color:black;
+}
+.info-space{
+  gap:1px;
 }
