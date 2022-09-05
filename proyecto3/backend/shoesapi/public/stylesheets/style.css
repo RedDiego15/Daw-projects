@@ -1,8 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+.header_title {
+  font-size: 2rem;
+}
+.intro_title{
+  font-size: 5rem;
+}
+.description {
+  font-size: 2.5rem;
+}
+.intro-api{
+  display: flex;
+  flex-direction: column;
+  height: 44rem;
+  justify-content: center;
+  gap:2rem;
+}
+.container-try{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: #dcdcdc4a;
+
+}
+.link-text {
+  margin: 0;
+}
+.btn{
+  background-color: #80808040
+}
+.show-response{
+  border: 15px solid black;
+  height:15rem;
+}
+.response-text{
+  height:100%;
+  overflow-y: scroll;
+}
+.acordion-container{
+  margin-top: 1rem;
 }
