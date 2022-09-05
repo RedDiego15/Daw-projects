@@ -1,7 +1,8 @@
 <div class="comment-container">
   <app-header></app-header>
   <div class="container-search">
-    <div class="title">{{item.nombre}}</div>
+    <p class="title">All comments of </p>
+    <p class="title">{{item.nombre}}</p>
     <select (change) = "chargeComments($event)" name = "order" placeholder = "Search comments of another shoe" type="text" class="sort-input">
       <option *ngFor="let loadItem of items" value="{{loadItem.idItem}}">{{loadItem.nombre}}</option>
 
