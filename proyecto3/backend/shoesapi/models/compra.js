@@ -1,40 +1,34 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('compra', {
-    idCompra: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    idItem: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    cantidad_comprada: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    }
-  }, {
-    sequelize,
-    tableName: 'compra',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "idCompra" },
-        ]
-      },
-      {
-        name: "fk_item",
-        using: "BTREE",
-        fields: [
-          { name: "idItem" },
-        ]
-      },
-    ]
-  });
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+	class compra extends Model {
+		/**
+		 * Helper method for defining associations.
+		 * This method is not a part of Sequelize lifecycle.
+		 * The `models/index` file will call this method automatically.
+		 */
+		static associate(
+			models
+		) {
+			// define association here
+			compra.belongsTo(
+				models.pedido,
+				{
+					foreignKey: "idCompra",
+				}
+			);
+		}
+	}
+	compra.init(
+		{
+			idCompra: DataTypes.INTEGER,
+			idItem: DataTypes.INTEGER,
+			cantidad_comprada: DataTypes.INTEGER,
+		},
+		{
+			sequelize,
+			modelName: "compra",
+		}
+	);
+	return compra;
 };

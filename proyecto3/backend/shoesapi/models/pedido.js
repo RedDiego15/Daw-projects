@@ -1,55 +1,40 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('pedido', {
-    idPedido: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    usuario: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-      references: {
-        model: 'cliente',
-        key: 'usuario'
-      }
-    },
-    idCompra: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'compra',
-        key: 'idcompra'
-      }
-    }
-  }, {
-    sequelize,
-    tableName: 'pedido',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "idPedido" },
-        ]
-      },
-      {
-        name: "fk_user_pedido",
-        using: "BTREE",
-        fields: [
-          { name: "usuario" },
-        ]
-      },
-      {
-        name: "fk_compra",
-        using: "BTREE",
-        fields: [
-          { name: "idCompra" },
-        ]
-      },
-    ]
-  });
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+	class pedido extends Model {
+		/**
+		 * Helper method for defining associations.
+		 * This method is not a part of Sequelize lifecycle.
+		 * The `models/index` file will call this method automatically.
+		 */
+		static associate(
+			models
+		) {
+			// define association here
+			pedido.hasMany(
+				models.compra,
+				{
+					foreignKey: "idCompra",
+				}
+			);
+			pedido.hasOne(
+				models.cliente,
+				{
+					foreignKey: "usuario",
+				}
+			);
+		}
+	}
+	pedido.init(
+		{
+			idPedido: DataTypes.INTEGER,
+			usuario: DataTypes.STRING,
+			idCompra: DataTypes.INTEGER,
+		},
+		{
+			sequelize,
+			modelName: "pedido",
+		}
+	);
+	return pedido;
 };

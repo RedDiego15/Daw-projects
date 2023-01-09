@@ -1,32 +1,34 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('usuario', {
-    usuario: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      primaryKey: true
-    },
-    contrasena: {
-      type: DataTypes.STRING(40),
-      allowNull: true
-    },
-    metodo: {
-      type: DataTypes.STRING(40),
-      allowNull: true
-    }
-  }, {
-    sequelize,
-    tableName: 'usuario',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "usuario" },
-        ]
-      },
-    ]
-  });
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+	class usuario extends Model {
+		/**
+		 * Helper method for defining associations.
+		 * This method is not a part of Sequelize lifecycle.
+		 * The `models/index` file will call this method automatically.
+		 */
+		static associate(
+			models
+		) {
+			// define association here
+			usuario.hasOne(
+				models.cliente,
+				{
+					foreignKey: "usuario",
+				}
+			);
+		}
+	}
+	usuario.init(
+		{
+			usuario: DataTypes.STRING,
+			contrasena: DataTypes.STRING,
+			metodo: DataTypes.STRING,
+		},
+		{
+			sequelize,
+			modelName: "usuario",
+		}
+	);
+	return usuario;
 };

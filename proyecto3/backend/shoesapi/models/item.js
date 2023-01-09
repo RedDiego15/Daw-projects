@@ -1,49 +1,31 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('item', {
-    idItem: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    nombre: {
-      type: DataTypes.STRING(40),
-      allowNull: false
-    },
-    descripcion: {
-      type: DataTypes.STRING(40),
-      allowNull: false
-    },
-    precio: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    category: {
-      type: DataTypes.STRING(40),
-      allowNull: true
-    },
-    urlImg: {
-      type: DataTypes.STRING(250),
-      allowNull: true
-    }
-  }, {
-    sequelize,
-    tableName: 'item',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "idItem" },
-        ]
-      },
-    ]
-  });
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+	class item extends Model {
+		/**
+		 * Helper method for defining associations.
+		 * This method is not a part of Sequelize lifecycle.
+		 * The `models/index` file will call this method automatically.
+		 */
+		static associate(
+			models
+		) {
+			// define association here
+		}
+	}
+	item.init(
+		{
+			idItem: DataTypes.INTEGER,
+			nombre: DataTypes.STRING,
+			category: DataTypes.STRING,
+			descripcion: DataTypes.STRING,
+			precio: DataTypes.INTEGER,
+			stock: DataTypes.INTEGER,
+		},
+		{
+			sequelize,
+			modelName: "item",
+		}
+	);
+	return item;
 };
